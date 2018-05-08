@@ -1,0 +1,15 @@
+{
+  "name": "api1",
+  "version": "1.0.0",
+  "description": "This is API v1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "author": "Me",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
