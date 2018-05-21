@@ -1,17 +1,18 @@
 var express = require("express");
+var requestLogging = require( "./middleware/request-logging" );
+var helloWorld = require( "./routes/hello-world" );
+var forLater = require( "./routes/for-later" );
 
 var app = express();
+
+// middleware
+requestLogging.configure( app );
+
+// routes
+helloWorld.configure( app );
+forLater.configure( app );
+
 var PORT = process.env.PORT || 3000;
-
-
-app.get( "/", function( req, res ) {
-
-	console.log( req.method, req.url );
-	res.send( { "message": "hello " + req.query.name } );
-
-} );
-
-
 app.listen( PORT, function() {
 
 	console.log( "Listening on port " + PORT );
