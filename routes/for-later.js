@@ -30,17 +30,14 @@ function configure( app ) {
 
     app.post( "/for-later", ( req, res ) => {
 
-        if( !req.body ) {
+        if ( Math.random() < 0.5 ) {
 
-            res.status( 400 ).send( "No content received" );
-
-        } else {
-
-            const newId = table.add( req.body );
-            const newLocation = `/for-later/${newId}`;
-            res.location( newLocation ).status( 204 ).send( "ok" );
+            throw new Error( "Oops, I spilt the coffee" );
 
         }
+        const newId = table.add( req.body );
+        const newLocation = `/for-later/${newId}`;
+        res.location( newLocation ).status( 204 ).send( "ok" );
 
     } );
 

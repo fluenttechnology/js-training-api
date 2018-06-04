@@ -39,8 +39,8 @@ module.exports = function( bucket ) {
         list: list.bind( this, bucket ),
         get: get.bind( this, bucket ),
         set: set.bind( this, bucket ),
-        add: add.bind( this.bucket ),
-        remove: remove.bind( this.bucket )
+        add: add.bind( this, bucket ),
+        remove: remove.bind( this, bucket )
     };
 
 };
