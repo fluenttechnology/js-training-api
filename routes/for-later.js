@@ -13,3 +13,5 @@ function configure( app ) {
     } );
 
 }
+
+module.exports = { configure };
