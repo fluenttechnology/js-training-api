@@ -1,5 +1,6 @@
 const express = require("express");
 const requestLogging = require( "./middleware/request-logging" );
+const bodyParser = require( "./middleware/body-parser" );
 const helloWorld = require( "./routes/hello-world" );
 const forLater = require( "./routes/for-later" );
 
@@ -7,6 +8,7 @@ const app = express();
 
 // middleware
 requestLogging.configure( app );
+bodyParser.configure( app );
 
 // routes
 helloWorld.configure( app );
