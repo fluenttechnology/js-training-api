@@ -30,14 +30,13 @@ function configure( app ) {
 
     app.post( "/for-later", ( req, res ) => {
 
-        const href = ( req.body || {} ).href;
-        if( typeof href !== "string" ) {
+        if( !req.body ) {
 
-            res.status( 400 ).send( "Expected an object containing an 'href' property with a string value" );
+            res.status( 400 ).send( "No content received" );
 
         } else {
 
-            const newId = table.add( { href } );
+            const newId = table.add( req.body );
             const newLocation = `/for-later/${newId}`;
             res.location( newLocation ).status( 204 ).send( "ok" );
 
